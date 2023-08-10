@@ -28,14 +28,13 @@ function validateInput(testInput) {
  }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    //DOM elements
+    
     let pilotStatus = document.getElementById('pilotStatus');
     let copilotStatus = document.getElementById('copilotStatus');
     let fuelStatus = document.getElementById('fuelStatus');
     let cargoStatus = document.getElementById('cargoStatus');
     let launchStatus = document.getElementById('launchStatus');
 
-    //Check either all valid input enter or not
     if (validateInput(pilot) === "Empty"|| validateInput(copilot) === "Empty"|| validateInput(fuelLevel) === "Empty"||validateInput(cargoLevel) === "Empty") {
         window.alert("All fields are required");
     } else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number" || validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number"){
@@ -45,7 +44,6 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`
     }
 
-    //check fuel levels and faulty items
     if (fuelLevel < 10000){
         fuelStatus.innerHTML =  "Fuel level too low for launch";
         list.style.visibility = "visible";
@@ -75,15 +73,13 @@ async function myFetch() {
     let planetsReturned;
 
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
-     return response.json() //You need to add the URL and return response.json().
-        //return response;
+     return response.json()       
         });
 
     return planetsReturned;
 }
 
-//pickPlanet() takes in one argument: a list of planets. Using Math.random(), 
-//return one planet from the list with a randomly-selected index.
+
 function pickPlanet(planets) {
     let selectedIndex = Math.floor(Math.random() * planets.length);
     return planets[selectedIndex];
