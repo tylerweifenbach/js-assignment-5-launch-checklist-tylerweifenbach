@@ -5,8 +5,7 @@ window.addEventListener("load", function() {
     let list = document.getElementById('faultyItems');
     form.addEventListener("submit", function(event){
         event.preventDefault();
-        //List DOM elements
-        //let document = window.document;
+
         let pilot = document.querySelector("input[name=pilotName]").value;
         let copilot = document.querySelector("input[name=copilotName]").value;
         let fuelLevel = document.querySelector("input[name=fuelLevel]").value;
